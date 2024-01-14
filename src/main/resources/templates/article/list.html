@@ -9,9 +9,12 @@
 <body>
     <div>
         게시판 목록
-        <ul th:each="article : ${articleList}">
+        <ul th:each="article, loop : ${articleList}">
             <li th:text="${article.title}"></li>
             <li th:text="${article.content}"></li>
+            <li>
+                <img th:src="@{|/file/${article.thumbnailImg}|}" alt="test">
+            </li>
         </ul>
     </div>
     <a href="/article/create_form">게시글 등록</a>

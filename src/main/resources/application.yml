@@ -45,3 +45,5 @@ spring:
       org.hibernate.orm.jdbc.bind: TRACE
       org.hibernate.orm.jdbc.extract: TRACE
       org.springframework.transaction.interceptor: TRACE
+custom:
+  fileDirPath: D:\thumbnail # 작성 안하고 secret에 작성하면, 나중에 알아서 덮어 씌어진다!

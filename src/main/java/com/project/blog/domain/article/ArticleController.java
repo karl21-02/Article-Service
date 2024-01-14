@@ -22,7 +22,7 @@ public class ArticleController {
     @GetMapping("/list")
     public String list(Model model) {
         List<Article> articleList = this.articleService.getList();
-        model.addAttribute("articleList", articleList);
+        model.addAttribute("articleList", articleList); // view에 보여줄때 th 값으로 attributeName 사용 가능
 
         return "article/list";
     }

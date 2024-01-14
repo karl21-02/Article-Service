@@ -1,9 +1,7 @@
 package com.project.blog.global.jpa;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,6 +13,8 @@ import java.time.LocalDateTime;
 @MappedSuperclass // 이 클래스를 상속받는 모든 객체에게 필요한 공통 정보가 필요할때(시간 정보 2개)
 @EntityListeners(AuditingEntityListener.class) // EntityListeners란 JPA Entity에서 이벤트가 발생할 때마다 특정 로직을 실행시킬 수 있는 어노테이션. 시간 정보가 생성, 변경 시 자동 저장!!
 @SuperBuilder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString

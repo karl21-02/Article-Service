@@ -15,6 +15,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/file/**") // list.html에서 /file/로 접근하면, 실제론 아래 경로에 있는 파일을 가져오기
                 .addResourceLocations("file:///" + fileDirPath + "/");
+
         // localhost:8010/file 경로로 접근하면 실제 file://{fileDirPath}/ 경로로 접근해서 파일을 가져온다.!
     }
 }

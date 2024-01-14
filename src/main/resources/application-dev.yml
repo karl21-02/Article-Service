@@ -17,3 +17,5 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update # DB 스키마 자동생성, 앱이 재실행되어도 데이터는 유지된다.
+custom:
+  fileDirPath: D:\thumbnail # 작성 안하고 secret에 작성하면, 나중에 알아서 덮어 씌어진다!

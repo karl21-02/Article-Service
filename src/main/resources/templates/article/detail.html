@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -20,6 +21,8 @@
             <h3>사진</h3>
             <img th:src="@{|/file/${article.thumbnailImg}|}" alt="test">
         </li>
+        <li th:text="${article.createdDate}"></li>
+        <a href="/article/list">게시글 목록 보기</a>
     </ul>
 </body>
 </html>

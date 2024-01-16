@@ -2,6 +2,8 @@ package com.project.blog.domain.article;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,6 +44,10 @@ public class ArticleService {
 
     public List<Article> getList() {
         return this.articleRepository.findAll();
+    }
+
+    public Page<Article> getList_page(Pageable pageable) {
+        return this.articleRepository.findAll(pageable);
     }
 
     public Article getArticle(Long id) {

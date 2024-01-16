@@ -1,20 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>게시판 목록</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>게시판 목록</title>
+    </head>
+    <body>
+        <div>
+            게시판 목록
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>글번호</th>
+                        <th>제목</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="article : ${list}">
+                        <td th:text="${article.id}"></td>
+                        <td>
+                            <a th:href="@{/article/detail/{id}(id=${article.id})}">상세 게시판</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                <a th:if="${page != nowPage}" th:href="@{/article/list(page=${page-1})}" th:text ="${page}"></a>
+                <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
+
+            </th:block>
+        </div>
     <div>
-        게시판 목록
-        <ul th:each="article : ${articleList}">
-            <li th:text="${articleStat.count}"></li>
-            <li th:text="${article.title}"></li>
-            <a th:href="@{/article/detail/{id}(id=${article.id})}">상세 게시판</a>
-        </ul>
+        <a href="/article/create_form">게시글 등록</a>
     </div>
-    <a href="/article/create_form">게시글 등록</a>
-</body>
+    </body>
+    <style>
+        .layout {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+    </style>
 </html>

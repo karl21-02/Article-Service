@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Value("${custom.fileDirPath}")
+    @Value("${custom.fileDirPath}") // yml에서 정의한 사용자 값을 가져와서 저장!
     private String fileDirPath;
 
     @Override

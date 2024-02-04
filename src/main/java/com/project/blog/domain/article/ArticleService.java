@@ -38,6 +38,7 @@ public class ArticleService {
                 .title(title)
                 .content(content)
                 .thumbnailImg(thumbnailPath) // db에 저장
+                .viewCount(Long.valueOf(0))
                 .build();
         this.articleRepository.save(article);
     }
@@ -46,8 +47,30 @@ public class ArticleService {
         return this.articleRepository.findAll();
     }
 
+    public ArticleDto viewCount(Long articleId) {
+        Optional<Article> article = articleRepository.findById(articleId);
+        if(article.isPresent()) {
+            ArticleDto articleDto = new ArticleDto(article.get());
+            return articleDto;
+        }
+        return null;
+    }
+
+    public void view_incre(Long articleId) {
+        Optional<Article> article = articleRepository.findById(articleId);
+        if(article.isPresent()) {
+            article.get().update_viewCount(); // view 1 증가
+            articleRepository.save(article.get());
+            System.out.println();
+        }
+    }
+
     public Page<Article> getList_page(Pageable pageable) {
         return this.articleRepository.findAll(pageable);
+    }
+
+    public List<Article> findArticleByTitle(String keyword) {
+        return this.articleRepository.findByTitleContaining(keyword);
     }
 
     public Article getArticle(Long id) {

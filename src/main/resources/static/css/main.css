@@ -1,0 +1,74 @@
+body {
+    background-color: white;
+}
+
+#main_div {
+    background-color: rgb(231, 231, 231);
+    width: 400px;
+    height: 500px;
+    margin: 100px auto;
+}
+
+.main_title {
+    background-color: aliceblue;
+    padding-left: 93px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 40px;
+}
+
+.login {
+    background-color: rgb(223, 223, 223);
+    width: 230px;
+    height: 40px;
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.logout {
+    background-color: rgb(223, 223, 223);
+    width: 230px;
+    height: 40px;
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.join {
+    background-color: rgb(223, 223, 223);
+    width: 230px;
+    height: 40px;
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.list {
+    background-color: rgb(223, 223, 223);
+    width: 230px;
+    height: 40px;
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: aliceblue;
+}

@@ -22,9 +22,9 @@ public class Dev {
     @Bean
     public ApplicationRunner init(MemberService memberService) {
         return args -> {
-            memberService.join("admin", "1234", "admin", "admin@test.com");
-            memberService.join("member1", "1234", "member1", "member1@test.com");
-            memberService.join("member2", "1234", "member2", "member2@test.com");
+//            memberService.join("admin", "1234", "admin", "admin@test.com");
+//            memberService.join("member1", "1234", "member1", "member1@test.com");
+//            memberService.join("member2", "1234", "member2", "member2@test.com");
         };
     }
 }

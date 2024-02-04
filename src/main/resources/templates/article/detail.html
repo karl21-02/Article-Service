@@ -1,28 +1,32 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
-      >
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/detail.css">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        게시글 상세
-    </div>
-    <ul th:each="article : ${article}">
-        <h3>제목</h3>
-        <li th:text="${article.title}"></li>
+<div class="main_title">
+    상세 게시글
+</div>
+    <ul class="article_ul" th:each="article : ${article}">
+        <h3 >제목</h3>
+        <li class="title" th:text="${article.title}"></li>
         <h3>내용</h3>
-        <li th:text="${article.content}"></li>
-        <li>
+        <li class="content_li" th:text="${article.content}"></li>
+        <h3>등록 일자</h3>
+        <li class="createdDate" th:text="${article.createdDate}"></li>
+        <h3 >조회수</h3>
+        <li class="viewCount" th:text="${viewCount.viewCount}"></li>
+        <li class="img_li">
             <h3>사진</h3>
-            <img th:src="@{|/file/${article.thumbnailImg}|}" alt="test">
+            <img class="img" th:src="@{|/file/${article.thumbnailImg}|}" alt="test">
         </li>
-        <li th:text="${article.createdDate}"></li>
-        <a href="/article/list">게시글 목록 보기</a>
+        <a class="to_list" href="/article/list">게시글 목록 보기</a>
     </ul>
 </body>
 </html>

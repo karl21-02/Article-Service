@@ -1,35 +1,34 @@
 package com.project.blog.domain.article;
 
-import lombok.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+
+@Data
 public class ArticleDto {
-    private Long id;
     private String title;
+    private Long id;
     private String content;
     private String thumbnailImg;
+    private Long viewCount;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
-    public Article toArticle() {
-        Article article = Article.builder()
-                .id(this.id)
-                .title(title)
-                .content(content)
-                .thumbnailImg(thumbnailImg)
-                .build();
-        return article;
-    }
 
-    @Builder
-    public ArticleDto(Long id, String title, String content, LocalDateTime createdDate, LocalDateTime modifiedDate) {
-        this.id = id;
-        this.title = title;
-        this.createdDate = createdDate;
-        this.modifiedDate = modifiedDate;
+    public ArticleDto(Article article) {
+        this.id = article.getId();
+        this.title = article.getTitle();
+        this.content = article.getContent();
+        this.thumbnailImg = article.getThumbnailImg();
+        this.viewCount = article.getViewCount();
+        this.createdDate = article.getCreatedDate();
+        this.modifiedDate = article.getModifiedDate();
     }
 }

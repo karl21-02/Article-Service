@@ -2,26 +2,27 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Title</title>
 </head>
 <body>
-    <div>
+    <div class="login_title">
         로그인
     </div>
-    <form th:action="@{/member/login}" method="post">
-        <div>
-            <span>유저 아이디</span>
-            <input type="text" name="username" placeholder="유저아이디">
+    <form class="form" th:action="@{/member/login}" method="post">
+        <div class="userId">
+            <span class="user_id_span">유저 아이디</span>
+            <input class="userId_input" type="text" name="username" placeholder="유저아이디">
         </div>
-        <div>
-            <span>비밀번호</span>
+        <div class="pw">
+            <span class="pw_id_span">비밀번호</span>
             <input type="password" name="password" placeholder="비밀번호">
         </div>
-        <div>
-            <button type="submit">로그인</button>
+        <div class="log_submit">
+            <button class="btn" type="submit">로그인</button>
         </div>
-        <div>
-            <a href="/oauth2/authorization/kakao">카카오 로그인</a>
+        <div class="kakao_log">
+            <a class="kakao_log_a" href="/oauth2/authorization/kakao">카카오 로그인</a>
         </div>
     </form>
 </body>

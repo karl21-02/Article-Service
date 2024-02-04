@@ -1,0 +1,46 @@
+.title {
+    color: rgb(73, 53, 255);
+    font-size: 1.5em;
+    margin-right: 100px;
+    font-weight: bold;
+}
+
+body {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.form_div{
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.id_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nick_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pw_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pwcheck_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form > * {
+    margin-bottom: 4px;
+}

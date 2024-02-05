@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/searchPage.css">
+    <title>Title</title>
+</head>
+<body>
+    <form class="search_form" action="/article/searchPage" method="post" role="search">
+        <input class="title_input" type="text" name="keyword" placeholder="제목으로 검색">
+        <button type="submit"></button>
+    </form>
+
+    <table class="article_tb">
+        <thead class="article_thead">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>등록일</th>
+            <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="articles : ${searchList}">
+            <td th:text="${articles.id}"></td>
+            <td th:text="${articles.title}"><a href="/posts/read/{{id}}">{{title}}</a></td>
+            <td th:text="${articles.createdDate}"></td>
+            <td th:text="${articles.viewCount}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="create_article_div">
+        <a class="create_article_a" href="/article/create_form" role="button"> 글쓰기</a>
+    </div>
+</body>
+</html>

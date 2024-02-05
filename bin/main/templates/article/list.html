@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/css/list.css">
+    <script src="/javascript/like_for_post.js"></script>
+    <script src="https://kit.fontawesome.com/afc6e5eb98.js" crossorigin="anonymous"></script>
+    <title>게시판 목록</title>
+</head>
+<body>
+    <div class="table_div">
+        <h1>게시판 목록</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>좋아요</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="article : ${list}">
+                <td th:text="${article.id}"></td>
+                <td>
+                    <a th:text="${article.title}" th:href="@{/article/detail/{id}(id=${article.id})}"></a>
+                </td>
+                <td>
+                    <form th:action="|/like/click_like|" name="like_form" method="post" target="clicklikes_iframe">
+                        <input type="hidden" th:value="${article.id}" th:name="articleId">
+                        <input type="hidden" th:value="${nowPage}" th:name="nowPage">
+                        <i class="fa-solid fa-heart" onclick="document.forms['like_form'].submit();"></i>
+                    </form>
+                    <iframe name="clicklikes_iframe" style="display:none;"></iframe>
+                </td>
+                <td th:text="${article.viewCount}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="page_num_div">
+            <th:block th:each="page:${#numbers.sequence(startPage,endPage)}">
+                <a th:if="${page != nowPage}" th:href="@{/article/list(page=${page-1})}" th:text ="${page}"></a>
+                <strong th:if="${page==nowPage}" th:text ="${page}" style="color:red"></strong>
+            </th:block>
+        </div>
+    </div>
+    <div class="enroll_search_div">
+        <a class="enroll_a" href="/article/create_form">게시글 등록</a>
+        <a class="search_a" href="/article/searchPage">게시글 검색</a>
+    </div>
+<script>
+    console.log("작동 하냐?");
+    function listView(userid){
+        let f = document.createElement('form');
+
+        let obj;
+        obj = document.createElement('input');
+        obj.setAttribute('type', 'hidden');
+        obj.setAttribute('name', 'articleId');
+        obj.setAttribute('value', articleId);
+
+        f.appendChild(obj);
+        f.setAttribute('method', 'post');
+        f.setAttribute('action', '/article/like');
+        document.body.appendChild(f);
+        f.submit();
+    }
+</script>
+</body>
+</html>

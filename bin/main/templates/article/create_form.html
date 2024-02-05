@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/create_form.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="endroll_title">
+    게시글 등록
+</div>
+<form class="article_form" action="/article/create" method="post" enctype="multipart/form-data">
+    <h3 class="title_h3">제목</h3>
+    <input class="title_input" type="text" name="title">
+    <h3>내용</h3>
+    <textarea name="content"></textarea>
+
+    <h3>사진</h3>
+    <div class="filebox">
+        <label for="file">파일찾기</label>
+        <input type="file" id="file" name="thumbnail" accept="image/png, image/gif, image/jpeg">
+    </div>
+    <button class="enroll_btn" type="submit">등 록</button>
+</form>
+</body>
+</html>

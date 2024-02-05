@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/join.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="form_div">
+    <p class="title">회원가입을 위해 정보를 입력해주세요.</p>
+    <form class="form" id="form1" th:action="@{/member/join}" method="POST">
+        <div class="id_div">
+            <input class="userId" type="text" name="username" placeholder="유저아이디">
+            <span>유저아이디</span>
+        </div>
+
+        <div class="nick_div">
+            <input class="nickname" type="text" name="nickname" placeholder="닉네임">
+            <span>닉네임</span>
+        </div>
+
+        <div class="email_div">
+            <input class="email" type="email" name="email" placeholder="이메일">
+            <span>이메일</span>
+        </div>
+
+        <div class="pw_div">
+            <input class="password" type="password" name="password" placeholder="비밀번호">
+            <span>비밀번호</span>
+        </div>
+        <div class="pwcheck_div">
+            <input class="checkPw" type="password" name="password_confirm" placeholder="비밀번호확인">
+            <span>비밀번호 확인</span>
+        </div>
+        <div class="join_btn_div">
+            <button class="join_btn" type="submit">회원가입</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

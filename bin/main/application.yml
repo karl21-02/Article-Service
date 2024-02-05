@@ -1,0 +1,49 @@
+spring:
+  profiles:
+    active: dev  # ?????? application-dev.yml ? ????? ??
+    include: secret # active ?? ???? (application-dev.yml) ??? application-secret.yml ? ????? ?? application-dev 파일 먼저 실행 그리고 application-secret 실행
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: 7c88378aec950375028f7313accdef09
+            scope: profile_nickname
+            client-name: Kakao
+            authorization-grant-type: authorization_code
+            redirect-uri: 'http://localhost:8010/{action}/oauth2/code/{registrationId}'
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+  mail:
+    host: smtp.gmail.com
+    post: 587 # 포트를 막아서 Mail server connection failed 에러가 발생 ->
+    username: manuna530@gmail.com # 앱 비밀번호 발급받은 계정
+    password: NEED_TO_PUT_ON_SECRET
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100 # Lazy ??? ? ? ??? DB?? ???? ???? ?
+        show_sql: true # SQL ??? ?? ?? ???
+        format_sql: true # SQL ??? ?????
+        use_sql_comments: true # SQL ??? ???
+  logging:
+    level:
+      # SQL? ??? ?? ????, SQL? ??? ??
+      org.hibernate.SQL: DEBUG
+      org.hibernate.orm.jdbc.bind: TRACE
+      org.hibernate.orm.jdbc.extract: TRACE
+      org.springframework.transaction.interceptor: TRACE
+custom:
+  fileDirPath: D:\thumbnail # 작성 안하고 secret에 작성하면, 나중에 알아서 덮어 씌어진다!

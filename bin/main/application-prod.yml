@@ -1,0 +1,2 @@
+custom:
+  fileDirPath: D:\thumbnail # 배포시에는 리눅스 기준이므로 D드라이브 사용불가!

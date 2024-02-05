@@ -1,0 +1,80 @@
+.login_title {
+    margin: auto;
+    margin-top: 130px;
+    text-align: center;
+    font-size: 70px;
+}
+
+.form {
+    margin: 50px auto;
+    margin-top: 70px;
+    width: 300px;
+}
+
+.userId {
+    margin-top: 50px;
+    width: 500px;
+}
+
+.pw {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.log_submit {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-left: 76px;
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
+.kakao_log {
+    margin-top: 20px;
+    width: 500px;
+}
+
+.kakao_log_a {
+    margin-left: 75px;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 170px;
+}
+
+.user_id_span {
+    margin-right: 10px;
+}
+
+.pw_id_span {
+    margin-right: 32px;
+}
+
+.kakao_log_a:link, .kakao_log_a:visited {
+    background-color: #eee;
+    color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: bold;
+}
+.kakao_log_a:hover, .kakao_log_a:active {
+    background-color: #fdf900;
+}
